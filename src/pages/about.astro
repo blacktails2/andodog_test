@@ -1,8 +1,85 @@
-<body>
+---
+import '../styles/global.scss';
+
+const pageTitle = "私について";
+
+const identity = {
+  firstName: "Masaki",
+  country: "Japan",
+  occupation: "Type Designer",
+  hobbies: ["Photography", "Video Game", "Reading"],
+};
+
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Astro",
+  "ドキュメントの執筆",
+];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skillColor = "#F5C51D";
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
     <a href="/">Home</a>
     <a href="/about/">about</a>
     <a href="/blog/">blog</a>
-    <h1>about Masaki Ando</h1>
+    <h1>{pageTitle}</h1>
     <h2>New Portfolio Site</h2>
     <p>チュートリアル中</p>
-</body>
+    <ul>
+      <li>my name is {identity.firstName}.</li>
+      <li>I live in {identity.country}, and work as {identity.occupation}.</li>
+      {
+        identity.hobbies.length >= 2 && (
+          <li>
+            my two hobbies are {identity.hobbies[0]} and {identity.hobbies[1]}.
+          </li>
+        )
+      }
+    </ul>
+    <p>here are my skills.</p>
+    <ul>
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+
+    {happy && <p>I am happy to be learning Astro! Astroを学べて幸せです！</p>}
+
+    {
+      finished && (
+        <p>I finished this tutorial! このチュートリアルを終えました！</p>
+      )
+    }
+
+    {
+      goal === 3 ? (
+        <p>My goal is to finish in 3 days. 3日で終えるのが目標です。</p>
+      ) : (
+        <p>My goal is not 3 days. 3日が目標ではありません。</p>
+      )
+    }
+  </body>
+</html>
+
+<style define:vars={{skillColor}}>
+  h1{
+    color: #CCB280;
+    font-size: 4rem;
+  }
+  .skill {
+    color: var(--skillColor);
+    font-weight: bold;
+  }
+</style>
