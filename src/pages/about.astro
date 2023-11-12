@@ -1,8 +1,6 @@
 ---
 import '../styles/global.scss';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = "私について";
 
 const identity = {
@@ -28,16 +26,7 @@ const goal = 3;
 const skillColor = "#F5C51D";
 
 ---
-
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <Header />
-    <h1>{pageTitle}</h1>
+<BaseLayout pageTitle={pageTitle}>
     <h2>New Portfolio Site</h2>
     <p>チュートリアル中</p>
     <ul>
@@ -71,12 +60,8 @@ const skillColor = "#F5C51D";
         <p>My goal is not 3 days. 3日が目標ではありません。</p>
       )
     }
-    <Footer />
-    <script>
-			import '../scripts/menu.js'
-		</script>
-  </body>
-</html>
+    
+</BaseLayout>
 
 <style define:vars={{skillColor}}>
   h1{
