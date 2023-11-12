@@ -1,5 +1,7 @@
 ---
 import '../styles/global.scss';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 const pageTitle = "私について";
 
@@ -24,6 +26,7 @@ const finished = false;
 const goal = 3;
 
 const skillColor = "#F5C51D";
+
 ---
 
 <html lang="ja">
@@ -33,9 +36,7 @@ const skillColor = "#F5C51D";
     <title>{pageTitle}</title>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">about</a>
-    <a href="/blog/">blog</a>
+    <Header />
     <h1>{pageTitle}</h1>
     <h2>New Portfolio Site</h2>
     <p>チュートリアル中</p>
@@ -70,6 +71,10 @@ const skillColor = "#F5C51D";
         <p>My goal is not 3 days. 3日が目標ではありません。</p>
       )
     }
+    <Footer />
+    <script>
+			import '../scripts/menu.js'
+		</script>
   </body>
 </html>
 
